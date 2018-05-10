@@ -3,7 +3,6 @@ package com.oradouane.oauth.sso.server.config;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,7 +11,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-//@Order(1)
 @Order(SecurityProperties.BASIC_AUTH_ORDER - 2)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -36,10 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();*/
         // @formatter:on
        http
-                .formLogin().disable()
+                .formLogin().and()
                 .anonymous().disable()
-                .httpBasic()
-                .and().authorizeRequests().anyRequest().authenticated()
+                .authorizeRequests().anyRequest().authenticated()
         ;
     }
 
