@@ -1,4 +1,4 @@
-#oauth-sso-server
+# oauth-sso-server
 The oauth server with SSO
 ## autorization_code grant_type
 
@@ -34,7 +34,7 @@ curl -H "Authorization: Bearer TOKEN" localhost:60947/uaa/sso/me
 curl -H "Authorization: Bearer $(curl SampleAppOne:secret@localhost:60947/uaa/oauth/token -d "grant_type=password&username=user&password=pass" | jq --raw-output .'access_token')" localhost:60947/uaa/sso/hellouser
 ```
 
-#sample-app-one
+# sample-app-one
 Open your preferred browser and navigate to the appOne sample endpoint
 ```
 http://localhost:60948/appone/sample
@@ -52,7 +52,7 @@ Hi root from app ONE
 
 
 
-#sample-app-two
+# sample-app-two
 Open an other tab of your browser and navigate to the appTwo sample endpoint
 ```
 http://localhost:60949/apptwo/sample2
