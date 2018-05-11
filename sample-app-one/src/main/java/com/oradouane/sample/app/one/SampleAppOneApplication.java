@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@EnableResourceServer
 @SpringBootApplication
 public class SampleAppOneApplication {
 

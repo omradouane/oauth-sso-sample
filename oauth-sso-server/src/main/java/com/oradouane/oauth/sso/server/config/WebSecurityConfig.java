@@ -33,8 +33,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .permitAll();*/
         // @formatter:on
-       http
-                .formLogin().and()
+        http
+                .requestMatchers()
+                .antMatchers("/login", "/oauth/authorize", "/oauth/token")
+                .and()
+                .formLogin().permitAll()
+                .and()
                 .anonymous().disable()
                 .authorizeRequests().anyRequest().authenticated()
         ;
@@ -45,13 +49,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // @formatter:off
         auth
                 .inMemoryAuthentication()
-                    .withUser("root")
-                    .password("{noop}root") // instead of NoOpPasswordEncoder bean
-                    .roles("ADMIN")
+                .withUser("root")
+                .password("{noop}root") // instead of NoOpPasswordEncoder bean
+                .roles("ADMIN")
                 .and()
-                    .withUser("user")
-                    .password("{noop}pass")
-                    .roles("USER");
+                .withUser("user")
+                .password("{noop}pass")
+                .roles("USER");
         // @formatter:on
     }
 
