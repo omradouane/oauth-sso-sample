@@ -1,4 +1,4 @@
-package com.oradouane.sample.app.one;
+package com.oradouane.sample.app.two;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

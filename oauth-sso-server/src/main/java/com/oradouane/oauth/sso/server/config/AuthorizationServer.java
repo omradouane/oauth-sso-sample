@@ -66,6 +66,15 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                     .autoApprove(true)
                     .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
                     .refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS)
+                .and()
+                .withClient("SampleAppTwo")
+                    .secret("{noop}secret")
+                    .scopes("read", "write")
+                    .authorizedGrantTypes("authorization_code", "client_credentials", "password", "refresh_token")
+                    .resourceIds(resourceId)
+                    .autoApprove(true)
+                    .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
+                    .refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS)
         ;
         // @formatter:on
     }

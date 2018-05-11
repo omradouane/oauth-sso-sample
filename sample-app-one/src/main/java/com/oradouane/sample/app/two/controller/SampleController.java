@@ -1,4 +1,4 @@
-package com.oradouane.sample.app.one.controller;
+package com.oradouane.sample.app.two.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +10,6 @@ public class SampleController {
 
     @GetMapping("/sample")
     public String sample(Principal principal) {
-        return "Hi " + principal;
+        return "Hi " + principal.getName() + " from app ONE";
     }
 }
